@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+
+    // Fixed conversion rates (example values)
+    static final double INR_TO_USD = 0.012;
+    static final double INR_TO_EUR = 0.011;
+    static final double INR_TO_GBP = 0.0099;
+
+    // Method to perform conversion
+    static void convertCurrency(double amount, int choice) {
+        switch (choice) {
+            case 1:
+                System.out.println("Converted Amount in USD: " + (amount * INR_TO_USD));
+                break;
+
+            case 2:
+                System.out.println("Converted Amount in EUR: " + (amount * INR_TO_EUR));
+                break;
+
+            case 3:
+                System.out.println("Converted Amount in GBP: " + (amount * INR_TO_GBP));
+                break;
+
+            default:
+                System.out.println("Invalid option selected!");
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        while (true) {
+            System.out.println("\n===== Currency Converter =====");
+            System.out.println("1. INR to USD");
+            System.out.println("2. INR to EUR");
+            System.out.println("3. INR to GBP");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+            if (choice == 4) {
+                System.out.println("Thank you for using Currency Converter!");
+                break;
+            }
+
+            System.out.print("Enter amount in INR: ");
+            double amount = sc.nextDouble();
+
+            convertCurrency(amount, choice);
+        }
+
+        sc.close();
+    }
+}
+
